@@ -12,14 +12,12 @@ class RestaurantsController < ApplicationController
 			@restaurant = Restaurant.new
 		end
 
-		def create
-		end
 
 		def create
 			@restaurant = Restaurant.new(restaurant_params)
 
 			if @restaurant.save
-				redirect_to @restaurant, notice: "Restaurant was created."
+				redirect_to restaurants_path(@restaurant), notice: "Restaurant was created."
 			else
 				render:new
 			end
